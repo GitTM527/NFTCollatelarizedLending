@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-import "@chainlink-brownie-contracts/contracts/src/v0.8/interfaces/shared/interfaces/AggregatorV3Interface.sol";
+import "lib/chainlink-brownie-contracts/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
 
 contract OracleFacet {
     // Mapping from NFT collection addresses to Chainlink price feed addresses

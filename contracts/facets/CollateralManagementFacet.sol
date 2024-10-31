@@ -5,20 +5,20 @@ import "../interfaces/IERC721.sol";
 
 contract CollateralManagementFacet {
    
-    struct collateral {
+    struct Collateral {
         address owner;
         uint256 loanAmount;
         bool isActive;
     }
 
-    mapping(address => mapping(uint256 => collateral)) public nftCollacterals;
+    mapping(address => mapping(uint256 => Collateral)) public nftCollacterals;
 
     function lockNFT(address nftAddress, uint256 tokenId, uint256 loanAmount) external{
         IERC721(nftAddress).transferFrom(msg.sender, address(this), tokenId);
         nftCollacterals[nftAddress][tokenId] = nftCollacterals(msg.Sender, loanAmount, true);
     }
 
-    function releaseNFT(address nftAddress, uint256 tokenID) external {
+    function releaseNFT(address nftAddress, uint256 tokenId) external {
         Collateral storage collateral = nftCollacterals[nftAddress][tokenId];
         require(collateral.isActive, "collateral not active");
         require(collateral == msg.sender, "not the owner");

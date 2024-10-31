@@ -35,7 +35,7 @@ contract DiamondDeployer is DiamondUtils, IDiamondCut {
         //upgrade diamond with facets
 
         //build cut struct
-        FacetCut[] memory cut = new FacetCut[](2);
+        FacetCut[] memory cut = new FacetCut[](6);
 
         cut[0] = (
             FacetCut({

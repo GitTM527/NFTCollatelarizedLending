@@ -23,7 +23,7 @@ contract LoanManagementFacet {
 
             // Apply repayment and update the loan balance
 
-            if (loan amount <= 0) {
+            if (loan.amount <= 0) {
                 loan.isActive = false;
 
                 // Release collateral via CollateralManagementFacet
