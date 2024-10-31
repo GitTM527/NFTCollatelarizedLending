@@ -32,30 +32,40 @@ The Diamond Standard (EIP-2535) lets us package the platform’s functionality i
 
 ## Smart Contract Components
 1. **Collateral Management Facet:** This Facet locks NFTs as collateral and handles their release or liquidation.
+
 **Main Functions:**
+
 **lockNFT():** Locks the NFT as loan collateral.
 **releaseNFT():** Returns the NFT after loan repayment.
 **liquidateNFT():** Liquidates NFT in case of default.
 
 2. **Oracle Facet:** This facet is set to interacts with Chainlink oracles to fetch real-time NFT prices.
+
 **Main Functions:**
+
 **setNFTPrice():** This sets the price of an NFT,
 **getNFTValue():** Returns the latest price of an NFT.
 **calculateCollateralValue():** This function calculate/updates the value of the NFT against a collateral price.
 
 3. **Loan Management Facet:** This facet manages loan creation, repayment, and tracking.
+
 **Main Functions:**
+
 **createLoan():** Starts a new loan.
 **repayLoan():** Handles loan repayments.
 **checkLoanStatus():** Checks the status of a loan.
 
 4. **Interest Rate Management Facet:** This Facet implements thevLogic that calculates and updates loan interest rates.
+
 **Main Functions:**
+
 **calculateInterest():** Calculates interest for each loan.
 **setBaseInteresRate():** Allows updates to interest rates.
 
 5. **Governance Facet:** This facet controls platform governance and permissions.
+
 **Main Functions:**
+
 **createProposal():** Adds new users with permissions.
 **vote():** Allows proposing changes to platform settings.
 
