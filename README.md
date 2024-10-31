@@ -9,9 +9,7 @@ The NFT Collateralized Lending Platform is a Decentralized platform that allows 
 * Diamond Standard Implementation
 * Smart Contract Components
 * Oracle Integration
-* Deployment and Setup
-* Usage Guide
-* Testing
+* Installation
 * Contributing
 * License
 
@@ -98,6 +96,18 @@ $ npx hardhat run scripts/deploy.js
 ```bash
 $ forge t
 ```
+
+## Contributing
+We welcome contributions! Here’s how to get started:
+
+1. Fork the repository and create a new branch.
+2. Make your changes.
+3. Open a pull request with a summary of your changes.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
 
 `Note`: A lot of improvements are still needed so contributions are welcome!!
 
