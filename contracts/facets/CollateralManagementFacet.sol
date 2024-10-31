@@ -11,17 +11,17 @@ contract CollateralManagementFacet {
         bool isActive;
     }
 
-    mapping(address => mapping(uint256 => Collateral)) public nftCollacterals;
+    mapping(address => mapping(uint256 => Collateral)) public nftCollaterals;
 
     function lockNFT(address nftAddress, uint256 tokenId, uint256 loanAmount) external{
         IERC721(nftAddress).transferFrom(msg.sender, address(this), tokenId);
-        nftCollacterals[nftAddress][tokenId] = nftCollacterals(msg.Sender, loanAmount, true);
+        nftCollaterals[nftAddress][tokenId] = Collateral(msg.sender, loanAmount, true);
     }
 
     function releaseNFT(address nftAddress, uint256 tokenId) external {
-        Collateral storage collateral = nftCollacterals[nftAddress][tokenId];
+        Collateral storage collateral = nftCollaterals[nftAddress][tokenId];
         require(collateral.isActive, "collateral not active");
-        require(collateral == msg.sender, "not the owner");
+        require(collateral.owner == msg.sender, "not the owner");
 
         IERC721(nftAddress).transferFrom(address(this), msg.sender, tokenId);
         collateral.isActive = false;

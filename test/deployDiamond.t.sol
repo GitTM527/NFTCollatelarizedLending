@@ -20,6 +20,12 @@ contract DiamondDeployer is DiamondUtils, IDiamondCut {
     DiamondCutFacet dCutFacet;
     DiamondLoupeFacet dLoupe;
     OwnershipFacet ownerF;
+    CollateralManagementFacet collatF;
+    GovernmentFacet govtF;
+    InterestRateManagementFacet interestF;
+    OracleFacet oracleF;
+
+
 
     function testDeployDiamond() public {
         //deploy facets
@@ -31,6 +37,11 @@ contract DiamondDeployer is DiamondUtils, IDiamondCut {
         govtF = new GovernmentFacet();
         interestF = new InterestRateManagementFacet();
         oracleF = new OracleFacet();
+
+
+
+
+
 
         //upgrade diamond with facets
 
@@ -61,6 +72,7 @@ contract DiamondDeployer is DiamondUtils, IDiamondCut {
             })
         );
 
+
         cut[3] = (
             FacetCut({
                 facetAddress: address(govtF),
@@ -68,6 +80,7 @@ contract DiamondDeployer is DiamondUtils, IDiamondCut {
                 functionSelectors: generateSelectors("GovernmentFacet")
             })
         );
+
 
          cut[4] = (
             FacetCut({

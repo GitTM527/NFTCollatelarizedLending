@@ -1,28 +1,28 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-import "lib/chainlink-brownie-contracts/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
+import "../../lib/chainlink-brownie-contracts/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
 
 contract OracleFacet {
     // Mapping from NFT collection addresses to Chainlink price feed addresses
     mapping(address => address) public priceFeeds;
-    address public owner;
+    // address public owner;
 
-    modifier onlyOwner() {
-        require(msg.sender == owner, "Not authorized");
-        _;
-    }
+    // modifier onlyOwner() {
+    //     require(msg.sender == owner, "Not authorized");
+    //     _;
+    // }
 
-    constructor() {
-        owner = msg.sender;
-    }
+    // constructor() {
+    //     owner = msg.sender;
+    // }
 
     /**
      * @dev Set or update the Chainlink price feed for a specific NFT collection
      * @param nftAddress The address of the NFT collection
      * @param feedAddress The address of the Chainlink price feed for this collection
      */
-    function setPriceFeed(address nftAddress, address feedAddress) external onlyOwner {
+    function setPriceFeed(address nftAddress, address feedAddress) external  {
         priceFeeds[nftAddress] = feedAddress;
     }
 
@@ -58,7 +58,7 @@ contract OracleFacet {
      * @dev Allow the owner to remove a price feed
      * @param nftAddress The address of the NFT collection to remove the feed for
      */
-    function removePriceFeed(address nftAddress) external onlyOwner {
+    function removePriceFeed(address nftAddress) external {
         delete priceFeeds[nftAddress];
     }
 }
